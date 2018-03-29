@@ -1,11 +1,13 @@
 {
   "name": "vue-select-on-focus",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Selects the text contents of inputs, textareas, and contenteditable elements on focus",
   "main": "dist/vue-select-on-focus.cjs.js",
   "module": "dist/vue-select-on-focus.es.js",
   "unpkg": "dist/vue-select-on-focus.min.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "repository": "https://github.com/syropian/vue-select-on-focus",
   "author": "Collin Henderson <collin@syropia.net>",
   "license": "MIT",
@@ -24,7 +26,12 @@
     "publicPath": "/vue-select-on-focus/"
   },
   "bili": {
-    "format": ["cjs", "umd", "umd-min", "es"],
+    "format": [
+      "cjs",
+      "umd",
+      "umd-min",
+      "es"
+    ],
     "moduleName": "VueSelectOnFocus"
   },
   "devDependencies": {
