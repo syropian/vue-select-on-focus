@@ -1,14 +1,14 @@
-import vSelectOnFocus from "./vue-select-on-focus";
+import selectOnFocus from "./vue-select-on-focus"
 
-export { vSelectOnFocus };
-
-function install(Vue) {
-  Vue.directive("highlight-on-focus", vSelectOnFocus);
+const install = function(Vue) {
+  Vue.directive("select-on-focus", selectOnFocus)
+  // For previous version compatibility
+  Vue.directive("highlight-on-focus", selectOnFocus)
 }
-
-export default install;
-
 // Install by default if included from script tag
 if (typeof window !== "undefined" && window.Vue) {
-  window.Vue.use(install);
+  window.Vue.use(install)
 }
+
+selectOnFocus.install = install
+export default selectOnFocus

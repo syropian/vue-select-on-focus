@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.VueSelectOnFocus = {})));
-}(this, (function (exports) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.VueSelectOnFocus = factory());
+}(this, (function () { 'use strict';
 
   function _defineProperty(obj, key, value) {
     if (key in obj) {
@@ -38,7 +38,7 @@
     return target;
   }
 
-  function vSelectOnFocus (el, binding) {
+  function selectOnFocus (el, binding) {
     var defaultRange = _objectSpread({
       start: 0,
       end: -1
@@ -71,17 +71,19 @@
     s.addRange(r);
   };
 
-  function install(Vue) {
-    Vue.directive("highlight-on-focus", vSelectOnFocus);
-  }
+  var install = function install(Vue) {
+    Vue.directive("select-on-focus", selectOnFocus); // For previous version compatibility
+
+    Vue.directive("highlight-on-focus", selectOnFocus);
+  }; // Install by default if included from script tag
+
 
   if (typeof window !== "undefined" && window.Vue) {
     window.Vue.use(install);
   }
 
-  exports.vSelectOnFocus = vSelectOnFocus;
-  exports.default = install;
+  selectOnFocus.install = install;
 
-  Object.defineProperty(exports, '__esModule', { value: true });
+  return selectOnFocus;
 
 })));

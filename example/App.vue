@@ -12,12 +12,10 @@
   </div>
 </template>
 <script>
-import { vSelectOnFocus } from '../src'
+import selectOnFocus from "../src";
 export default {
-  directives: {
-    'selectOnFocus': vSelectOnFocus
-  }
-}
+  directives: { selectOnFocus }
+};
 </script>
 <style lang="scss">
 * {

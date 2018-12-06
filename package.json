@@ -35,14 +35,14 @@
     "moduleName": "VueSelectOnFocus"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.42",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.42",
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
     "@vue/test-utils": "^1.0.0-beta.12",
-    "babel-core": "^7.0.0-0",
-    "babel-jest": "^22.4.3",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
     "bili": "^3.0.4",
-    "jest": "^22.4.2",
+    "jest": "^23.6.0",
     "node-sass": "^4.8.3",
     "poi": "^10.0.0-beta.6",
     "sass-loader": "^6.0.7"

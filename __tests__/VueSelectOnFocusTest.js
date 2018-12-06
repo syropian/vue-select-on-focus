@@ -1,27 +1,27 @@
-import { shallow, createLocalVue } from "@vue/test-utils";
-import { vSelectOnFocus } from "../src";
+import { shallowMount, createLocalVue } from "@vue/test-utils"
+import selectOnFocus from "../src"
 
-const localVue = createLocalVue();
-localVue.directive("selectOnFocus", vSelectOnFocus);
+const localVue = createLocalVue()
+localVue.directive("selectOnFocus", selectOnFocus)
 
 describe("vue-highlight-on-focus", () => {
   describe("text inputs", () => {
     const Component = {
       template: '<div><input type="text" v-select-on-focus value="Lorem Ipsum"/></div>'
-    };
+    }
 
     it("selects the content when focused", () => {
-      const $wrapper = shallow(Component, {
+      const $wrapper = shallowMount(Component, {
         localVue
-      });
-      const $input = $wrapper.find("input");
+      })
+      const $input = $wrapper.find("input")
 
-      $input.trigger("focus");
+      $input.trigger("focus")
 
-      const selectedChars = getSelectedCharacters($input.element);
+      const selectedChars = getSelectedCharacters($input.element)
 
-      expect(selectedChars).toBe("Lorem Ipsum");
-    });
+      expect(selectedChars).toBe("Lorem Ipsum")
+    })
 
     it("works with range options", () => {
       const Component = {
@@ -32,41 +32,41 @@ describe("vue-highlight-on-focus", () => {
               start: 2,
               end: 5
             }
-          };
+          }
         }
-      };
+      }
 
-      const $wrapper = shallow(Component, {
+      const $wrapper = shallowMount(Component, {
         localVue
-      });
+      })
 
-      const $input = $wrapper.find("input");
+      const $input = $wrapper.find("input")
 
-      $input.trigger("focus");
+      $input.trigger("focus")
 
-      const selectedChars = getSelectedCharacters($input.element);
+      const selectedChars = getSelectedCharacters($input.element)
 
-      expect(selectedChars).toBe("rem");
-    });
-  });
+      expect(selectedChars).toBe("rem")
+    })
+  })
 
   describe("textareas", () => {
     const Component = {
       template: "<div><textarea v-select-on-focus>Lorem Ipsum</textarea></div>"
-    };
+    }
 
     it("selects the content when focused", () => {
-      const $wrapper = shallow(Component, {
+      const $wrapper = shallowMount(Component, {
         localVue
-      });
-      const $input = $wrapper.find("textarea");
+      })
+      const $input = $wrapper.find("textarea")
 
-      $input.trigger("focus");
+      $input.trigger("focus")
 
-      const selectedChars = getSelectedCharacters($input.element);
+      const selectedChars = getSelectedCharacters($input.element)
 
-      expect(selectedChars).toBe("Lorem Ipsum");
-    });
+      expect(selectedChars).toBe("Lorem Ipsum")
+    })
 
     it("works with range options", () => {
       const Component = {
@@ -77,25 +77,25 @@ describe("vue-highlight-on-focus", () => {
               start: 2,
               end: 5
             }
-          };
+          }
         }
-      };
+      }
 
-      const $wrapper = shallow(Component, {
+      const $wrapper = shallowMount(Component, {
         localVue
-      });
+      })
 
-      const $input = $wrapper.find("textarea");
+      const $input = $wrapper.find("textarea")
 
-      $input.trigger("focus");
+      $input.trigger("focus")
 
-      const selectedChars = getSelectedCharacters($input.element);
+      const selectedChars = getSelectedCharacters($input.element)
 
-      expect(selectedChars).toBe("rem");
-    });
-  });
-});
+      expect(selectedChars).toBe("rem")
+    })
+  })
+})
 
 const getSelectedCharacters = $el => {
-  return $el.value.substr($el.selectionStart, $el.selectionEnd - $el.selectionStart);
-};
+  return $el.value.substr($el.selectionStart, $el.selectionEnd - $el.selectionStart)
+}

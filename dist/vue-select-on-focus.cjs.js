@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -36,7 +34,7 @@ function _objectSpread(target) {
   return target;
 }
 
-function vSelectOnFocus (el, binding) {
+function selectOnFocus (el, binding) {
   var defaultRange = _objectSpread({
     start: 0,
     end: -1
@@ -69,13 +67,17 @@ var selectNodeContents = function selectNodeContents($el, start, end) {
   s.addRange(r);
 };
 
-function install(Vue) {
-  Vue.directive("highlight-on-focus", vSelectOnFocus);
-}
+var install = function install(Vue) {
+  Vue.directive("select-on-focus", selectOnFocus); // For previous version compatibility
+
+  Vue.directive("highlight-on-focus", selectOnFocus);
+}; // Install by default if included from script tag
+
 
 if (typeof window !== "undefined" && window.Vue) {
   window.Vue.use(install);
 }
 
-exports.vSelectOnFocus = vSelectOnFocus;
-exports.default = install;
+selectOnFocus.install = install;
+
+module.exports = selectOnFocus;
